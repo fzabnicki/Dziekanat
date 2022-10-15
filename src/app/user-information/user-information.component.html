@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="leftSide">
+    <div class="userProfileTitle">
+      <span class="userProfileText">Profil użytkownika</span>
+    </div>
+    <div class="photo">
+      <img mat-card-image class="userPhoto"
+        src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cmFuZG9tJTIwcGVvcGxlfGVufDB8fDB8fA%3D%3D&w=1000&q=80">
+    </div>
+    <div class="usefullInformations">
+      <span>Email do dziekanatu:</span><br>
+      <span class="email">dziekanat@zdamy.to.pl</span><br>
+      <br>
+      <span>Email do starosty:</span><br>
+      <span class="email">starosta@zdamy.to.pl</span>
+    </div>
+  </div>
+  <div class="userInformation">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <!-- Position Column -->
+      <ng-container matColumnDef="key">
+        <th mat-header-cell *matHeaderCellDef> Dane</th>
+        <td mat-cell *matCellDef="let element"> {{element.key}} </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="value">
+        <th mat-header-cell *matHeaderCellDef> Wartość </th>
+        <td mat-cell *matCellDef="let element"> {{element.value}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+  <div class="rightSide">
+    <img>
+    <img mat-card-image class="rightPhoto"
+      src="https://www.creatopy.com/blog/wp-content/uploads/2020/08/University-of-Phoenix.png">
+    <img mat-card-image class="rightPhoto"
+      src="https://www.creatopy.com/blog/wp-content/uploads/2020/08/Univeristy-of-Phoenix-ad-example.png">
+  </div>
+</div>

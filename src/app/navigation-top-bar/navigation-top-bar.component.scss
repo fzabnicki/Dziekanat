@@ -1,0 +1,29 @@
+.navigation-bar{
+    background-color: lightgray;
+    width: 100%;
+    height: 54px;
+}
+
+.home{
+    padding: 15px;
+    float: left;
+}
+
+.home-icon{
+    float: left;
+}
+
+.user-icon{
+float: right;
+padding: 15px;
+}
+
+.logout-icon{
+    float: right;
+    padding: 15px;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}

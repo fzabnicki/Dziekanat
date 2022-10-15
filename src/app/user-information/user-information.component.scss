@@ -1,0 +1,60 @@
+.leftSide{
+    width: 14%;
+    float: left;
+    padding: 20px;
+}
+
+.userPhoto{
+    width: 100%;
+    border-radius: 10px;
+    min-height: 250px;
+    min-width: 140px;
+}
+
+.userInformation{
+    padding: 20px;
+    width: 60%;
+    float: left;
+}
+
+td{
+    width: 1%;
+}
+
+.rightSide{
+    height: 875px;
+    padding: 20px;
+    width: 13%;
+    position: relative;
+    float: left;
+    background-color: gray;
+    position: fixed;
+    left: 85%;
+    margin-left: 10px;
+}
+
+.rightPhoto{
+    width: 100%;
+}
+
+.userProfileTitle{
+    margin-bottom: 15px;
+    text-align: center;
+
+}
+
+.userProfileText{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+}
+
+.usefullInformations{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+}
+
+.email{
+    font-style: italic;
+    color: blue;
+    text-decoration: underline;
+}
