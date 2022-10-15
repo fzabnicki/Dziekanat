@@ -19,8 +19,11 @@ import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { HttpClient, HttpClientModule, HttpHandler } from '@angular/common/http';
+import { JwtModule } from '@auth0/angular-jwt';
 
-
+export function tokenGetter(){
+  return localStorage.getItem("acces_token");
+}
 
 @NgModule({
   declarations: [
@@ -46,7 +49,13 @@ import { HttpClient, HttpClientModule, HttpHandler } from '@angular/common/http'
     MatInputModule,
     MatButtonModule,
     HttpClientModule,
-    ReactiveFormsModule 
+    ReactiveFormsModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter,
+        allowedDomains: ['localhost:4200']
+      }
+    })
   ],
   providers: [
     FormBuilder,

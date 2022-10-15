@@ -5,16 +5,17 @@ import { HomeComponent } from './home/home.component';
 import { LessonPlanComponent } from './lesson-plan/lesson-plan.component';
 import { LoginComponent } from './login/login.component';
 import { MessagesComponent } from './messages/messages.component';
+import { AuthGuard } from './shared/authGuard';
 import { UserInformationComponent } from './user-information/user-information.component';
 
 const routes: Routes = [
   {path: "", redirectTo: "/home", pathMatch: "full"},
-  {path: "home", component: HomeComponent },
   {path: "login", component: LoginComponent },
-  {path: "grades", component: GradesComponent },
-  {path: "messages", component: MessagesComponent },
-  {path: "user", component: UserInformationComponent },
-  {path: "lessons", component: LessonPlanComponent}
+  {path: "home", canActivate: [AuthGuard], component: HomeComponent },
+  {path: "grades", canActivate: [AuthGuard], component: GradesComponent },
+  {path: "messages", canActivate: [AuthGuard], component: MessagesComponent },
+  {path: "user", canActivate: [AuthGuard], component: UserInformationComponent },
+  {path: "lessons", canActivate: [AuthGuard], component: LessonPlanComponent}
 ];
 
 @NgModule({

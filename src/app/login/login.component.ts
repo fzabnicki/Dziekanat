@@ -1,59 +1,43 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { catchError } from 'rxjs';
 import { AuthService } from './shared/AuthService';
-import { StorageService } from './shared/storageService';
+import { UserCredentials } from '../shared/userCredentials';
+import { tap } from 'rxjs';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
 
-  form: FormGroup;
-  loginValid: boolean = false;
-  isLoggedIn: boolean = false;
-  isLoginFailed: boolean = false;
-  errorMessage: string = '';
-  roles: string[] = [];
+  form: FormGroup = new FormGroup({
+    email: new FormControl(null, [Validators.required, Validators.email]),
+    password: new FormControl(null, [Validators.required])
+  })
 
   constructor(
-    private fromBuilder: FormBuilder,
     private router: Router,
     private authService: AuthService,
-    private storageService: StorageService
-  ) {
-    this.form = this.fromBuilder.group({
-      email: ['', Validators.required],
-      password: ['', Validators.required]
-    });
+  ) { }
+
+  get email(): FormControl{
+    return this.form.get('email') as FormControl;
   }
 
-  ngOnInit(): void {
-    if (this.storageService.isLoggedIn()) {
-      this.isLoggedIn = true;
-      this.roles = this.storageService.getUser().roles;
-    }
+  get password(): FormControl{
+    return this.form.get('password') as FormControl;
   }
 
   login() {
-    const val = this.form.value;
-    if (val.email && val.password) {
-      this.authService.login(val.email, val.password).subscribe((data) => {
-        this.storageService.saveUser(data);
-
-        this.isLoginFailed = false;
-        this.isLoggedIn = true;
-        this.roles = this.storageService.getUser().roles;
-        this.router.navigateByUrl('/home');
-      }, (err)=>{
-        this.errorMessage = err.error.message;
-        this.isLoginFailed = true;
-      }
-      )
+    if (this.form.valid) {
+      this.authService.login({
+        email: this.email.value,
+        password: this.password.value
+      }).pipe(
+        tap(()=> this.router.navigate(['/home']))
+      ).subscribe()
     }
   }
-
 }

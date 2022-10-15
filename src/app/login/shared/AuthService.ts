@@ -1,25 +1,25 @@
 import { Injectable } from '@angular/core';
-import { Observable} from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { User } from 'src/app/shared/user';
+import { LoginResponseI } from 'src/app/shared/loginResponse';
+import { UserCredentials } from 'src/app/shared/userCredentials';
+import { MatSnackBar } from '@angular/material/snack-bar'
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  baseUrl: string = "localhost////";
-  httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-  };
-
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private snackBar: MatSnackBar) {
   }
 
-  public login(username: string, password: string): Observable<User> {
-    return this.http.post<User>("post", { username, password }, this.httpOptions);
+  login(userCredentials: UserCredentials): Observable<LoginResponseI> {
+    return this.http.post<LoginResponseI>("https://localhost:44392/login", userCredentials).pipe(
+      tap((res: LoginResponseI) => localStorage.setItem('acces_token', res.acces_token)),
+      tap(() => this.snackBar.open('Login succesfull', 'Close', { duration: 2000, horizontalPosition: 'right', verticalPosition: 'top' }))
+    );
   }
 
-  
+
 
 }
