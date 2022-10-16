@@ -15,11 +15,14 @@ import { HomeComponent } from './home/home.component'
 import {MatTableModule} from '@angular/material/table';
 import {MatCardModule} from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
-import { HttpClient, HttpClientModule, HttpHandler } from '@angular/common/http';
-import { JwtModule } from '@auth0/angular-jwt';
+import { HttpClientModule} from '@angular/common/http';
+import { JwtHelperService, JwtModule} from '@auth0/angular-jwt';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Overlay } from '@angular/cdk/overlay';
+import { AuthGuard } from './shared/authGuard';
 
 export function tokenGetter(){
   return localStorage.getItem("acces_token");
@@ -53,12 +56,18 @@ export function tokenGetter(){
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,
-        allowedDomains: ['localhost:4200']
-      }
-    })
+        allowedDomains: ["localhost:4200"],
+        disallowedRoutes: []
+      }})
   ],
   providers: [
-    FormBuilder,
+    MatSnackBar,
+    Overlay,
+    AuthGuard,
+    {
+      provide: JwtHelperService,
+      useFactory: () => new JwtHelperService()
+    }
   ],
   bootstrap: [AppComponent]
 })

@@ -9,13 +9,14 @@ import { AuthGuard } from './shared/authGuard';
 import { UserInformationComponent } from './user-information/user-information.component';
 
 const routes: Routes = [
-  {path: "", redirectTo: "/home", pathMatch: "full"},
-  {path: "login", component: LoginComponent },
-  {path: "home", canActivate: [AuthGuard], component: HomeComponent },
-  {path: "grades", canActivate: [AuthGuard], component: GradesComponent },
-  {path: "messages", canActivate: [AuthGuard], component: MessagesComponent },
-  {path: "user", canActivate: [AuthGuard], component: UserInformationComponent },
-  {path: "lessons", canActivate: [AuthGuard], component: LessonPlanComponent}
+  { path: "login", component: LoginComponent },
+  { path: "home", canActivate: [AuthGuard], component: HomeComponent },
+  { path: "grades", canActivate: [AuthGuard], component: GradesComponent },
+  { path: "messages", canActivate: [AuthGuard], component: MessagesComponent },
+  { path: "user", canActivate: [AuthGuard], component: UserInformationComponent },
+  { path: "lessons", canActivate: [AuthGuard], component: LessonPlanComponent },
+  { path: "", component: LoginComponent, pathMatch: "full" },
+  { path: "**", component: LoginComponent }
 ];
 
 @NgModule({

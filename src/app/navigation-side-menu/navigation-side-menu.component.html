@@ -1,23 +1,25 @@
 <div class="container">
-    <div class="tile">
-        <div class="text">
-            <a routerLink="/lessons" routerLinkActive="active" ariaCurrentWhenActive="page">
-                <span>Plan lekcji</span>
-            </a>
+    <div *ngIf="isUserAuthenticated()">
+        <div class="tile">
+            <div class="text">
+                <a routerLink="/lessons" routerLinkActive="active" ariaCurrentWhenActive="page">
+                    <span>Plan lekcji</span>
+                </a>
+            </div>
         </div>
-    </div>
-    <div class="tile">
-        <div class="text">
-            <a routerLink="/grades" routerLinkActive="active" ariaCurrentWhenActive="page">
-                <span>Oceny</span>
-            </a>
+        <div class="tile">
+            <div class="text">
+                <a routerLink="/grades" routerLinkActive="active" ariaCurrentWhenActive="page">
+                    <span>Oceny</span>
+                </a>
+            </div>
         </div>
-    </div>
-    <div class="tile">
-        <div class="text">
-            <a routerLink="/messages" routerLinkActive="active" ariaCurrentWhenActive="page">
-                <span>Wiadomości</span>
-            </a>
+        <div class="tile">
+            <div class="text">
+                <a routerLink="/messages" routerLinkActive="active" ariaCurrentWhenActive="page">
+                    <span>Wiadomości</span>
+                </a>
+            </div>
         </div>
     </div>
 </div>

@@ -4,6 +4,9 @@
     <mat-card-content>
       <form [formGroup]="form" (ngSubmit)="login()">
         
+        <div *ngIf="invalidLogin" class="alert alert-danger">Nieudane logowanie. Spróbuj ponownie...</div>
+        <br/>
+
         <mat-form-field>
           <input matInput formControlName="email" type="email" placeholder="Email" required>
           <mat-error *ngIf="email.touched && email.hasError('required')">Adres email jest wymagany</mat-error>
@@ -26,3 +29,4 @@
     </mat-card-content>
   </mat-card>
 </div>
+dodoribc inny widok jak user jest zalogowanty

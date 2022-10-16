@@ -5,12 +5,12 @@
                 <mat-icon class="home-icon" aria-hidden="false" fontIcon="home"></mat-icon>
             </a>
         </div>
-        <div class="logout-icon">
-            <a routerLink="/login" routerLinkActive="active" ariaCurrentWhenActive="page">
+        <div *ngIf="isUserAuthenticated()" class="logout-icon">
+            <a routerLink="/login" routerLinkActive="active" ariaCurrentWhenActive="page" (click)="logOut()">
                 <mat-icon class="home-icon" aria-hidden="false" fontIcon="logout"></mat-icon>
             </a>
         </div>
-        <div class="user-icon">
+        <div  *ngIf="isUserAuthenticated()" class="user-icon">
             <a routerLink="/user" routerLinkActive="active" ariaCurrentWhenActive="page">
                 <mat-icon class="home-icon" aria-hidden="false" fontIcon="person"></mat-icon>
             </a>

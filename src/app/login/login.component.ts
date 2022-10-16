@@ -2,8 +2,6 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from './shared/AuthService';
-import { UserCredentials } from '../shared/userCredentials';
-import { tap } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -16,28 +14,33 @@ export class LoginComponent {
     email: new FormControl(null, [Validators.required, Validators.email]),
     password: new FormControl(null, [Validators.required])
   })
+  invalidLogin?: boolean;
 
   constructor(
     private router: Router,
     private authService: AuthService,
   ) { }
 
-  get email(): FormControl{
+  get email(): FormControl {
     return this.form.get('email') as FormControl;
   }
 
-  get password(): FormControl{
+  get password(): FormControl {
     return this.form.get('password') as FormControl;
   }
 
   login() {
     if (this.form.valid) {
-      this.authService.login({
-        email: this.email.value,
-        password: this.password.value
-      }).pipe(
-        tap(()=> this.router.navigate(['/home']))
-      ).subscribe()
+      this.authService.login({ email: this.email.value, password: this.password.value }).subscribe({
+        next: (response) => {
+          const token = (<any>response).token;
+          localStorage.setItem("acces_token", token);
+          this.invalidLogin = false;
+          this.router.navigate(["/home"]);
+        }, error: (err) => {
+          this.invalidLogin = true;
+        }
+      })
     }
   }
 }

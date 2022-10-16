@@ -14,7 +14,7 @@ export class AuthService {
   }
 
   login(userCredentials: UserCredentials): Observable<LoginResponseI> {
-    return this.http.post<LoginResponseI>("https://localhost:44392/login", userCredentials).pipe(
+    return this.http.post<LoginResponseI>("https://localhost:44392/api/login/login", userCredentials).pipe(
       tap((res: LoginResponseI) => localStorage.setItem('acces_token', res.acces_token)),
       tap(() => this.snackBar.open('Login succesfull', 'Close', { duration: 2000, horizontalPosition: 'right', verticalPosition: 'top' }))
     );
