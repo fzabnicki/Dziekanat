@@ -1,16 +1,29 @@
-.container{
+.container {
   display: flex;
   justify-content: center;
-  margin: 100px;
-  min-width: 350px;
+  height: 100%;
+  width: 100vw;
+  min-height: calc(100vh - 54px);
+  background-image: url('../../../images/Background.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center center;
+  background-size: cover;
+}
+
+.loginFailed {
+  color: red;
 }
 
 mat-card {
-    max-width: 400px;
-    margin: 2em auto;
-    text-align: center;
-  }
-  
-  mat-form-field {
-    display: block;
-  }
+  max-width: 400px;
+  max-height: 700px;
+  margin: 2em auto;
+  text-align: center;
+  height: fit-content;
+  margin-top: 200px;
+}
+
+mat-form-field {
+  display: block;
+}

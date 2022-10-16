@@ -1,9 +1,9 @@
 .container{
-    padding: 10px;
     background-color: rgb(59, 17, 78);
-    max-width: 100px;
-    height: 100%;
-    float: left;
+    max-width: 150px;
+    min-height: calc(100vh - 54px);
+    padding: 10px;
+    box-sizing: border-box;
 }
 
 .tile{

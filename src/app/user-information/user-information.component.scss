@@ -2,6 +2,7 @@
     width: 14%;
     float: left;
     padding: 20px;
+    margin-left: 10px;
 }
 
 .userPhoto{
@@ -22,10 +23,8 @@ td{
 }
 
 .rightSide{
-    height: 875px;
-    padding: 20px;
-    width: 13%;
-    float: left;
+    min-height: calc(100vh - 54px);
+    padding: 10px;
     background-color: gray;
     position: fixed;
     left: 85%;
@@ -34,6 +33,7 @@ td{
 
 .rightPhoto{
     width: 100%;
+    height: 50%;
 }
 
 .userProfileTitle{
