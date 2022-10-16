@@ -37,6 +37,7 @@ export class LoginComponent {
           localStorage.setItem("acces_token", token);
           this.invalidLogin = false;
           this.router.navigate(["/home"]);
+          //odpytać API o dane usera!!!
         }, error: (err) => {
           this.invalidLogin = true;
         }
