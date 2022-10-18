@@ -33,11 +33,13 @@ export class LoginComponent {
     if (this.form.valid) {
       this.authService.login({ email: this.email.value, password: this.password.value }).subscribe({
         next: (response) => {
+          console.log(response);
           const token = (<any>response).token;
+          const userId = (<any>response).userId;
           localStorage.setItem("acces_token", token);
+          localStorage.setItem("userId", userId);
           this.invalidLogin = false;
           this.router.navigate(["/home"]);
-          //odpytać API o dane usera!!!
         }, error: (err) => {
           this.invalidLogin = true;
         }
