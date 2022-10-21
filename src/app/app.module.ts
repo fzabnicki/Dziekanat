@@ -26,6 +26,9 @@ import { AuthGuard } from './shared/authGuard';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { SpinnerInterceptor } from './spinner/shared/spinner-interceptor';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatListModule } from '@angular/material/list';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 
 export function tokenGetter() {
@@ -59,6 +62,9 @@ export function tokenGetter() {
     HttpClientModule,
     ReactiveFormsModule,
     MatProgressSpinnerModule,
+    MatListModule,
+    MatPaginatorModule,
+    MatGridListModule,
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,

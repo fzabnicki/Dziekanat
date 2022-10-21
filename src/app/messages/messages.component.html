@@ -1,1 +1,31 @@
-<p>messages works!</p>
+<div class="container">
+    <div class="listContainer">
+        <mat-selection-list #messages [multiple]="false" >
+            <mat-list-option class="mat-list mat-list-single-item" role="listitem" *ngFor='let message of listData' [value]="message" (click)="readMessage(message.id)">
+                <div [ngStyle]="{'font-weight': message.isMessageNew ? 'bold' : 'unset'}" mat-line>{{message.title}}
+                </div>
+                <div mat-line> {{message.date | date}} </div>
+                <div class="isMessageNewInfo" [ngStyle]="{'font-weight': message.isMessageNew ? 'bold' : 'unset'}"
+                    *ngIf="message.isMessageNew">Nowa!</div>
+            </mat-list-option>
+        </mat-selection-list>
+        <mat-paginator #paginator [length]="dataSize" [pageSize]="10">
+        </mat-paginator>
+    </div>
+    <div class="messageShowBox">
+        <div class="messageBoxContent" *ngIf="messages.selectedOptions.selected[0]">
+            <div class="dateTile">
+                <h3>Data: {{messages.selectedOptions.selected[0]?.value.date | date}}</h3>
+            </div>
+            <div class="senderTile">
+                <h3>Od: {{messages.selectedOptions.selected[0]?.value.sender}}</h3>
+            </div>
+            <div class="title">
+                <h1>{{messages.selectedOptions.selected[0]?.value.title}}</h1>
+            </div>
+            <div class="content">
+                <span>{{messages.selectedOptions.selected[0]?.value.content}}</span>
+            </div>
+        </div>
+    </div>
+</div>

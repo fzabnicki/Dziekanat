@@ -1,0 +1,63 @@
+.container {
+    padding-top: 20px;
+    padding-left: 20px;
+    background-color: white;
+    width: 92vw;
+    height: 90vh;
+}
+
+.listContainer{
+    min-width: 35vw;
+    width: 35vw;
+    float: left;
+}
+
+mat-selection-list{
+    display: block;
+    min-width: 35vw;
+    width: 35vw;
+    padding: 0px;
+}
+
+.isMessageNewInfo {
+    min-width: 150px;
+    padding-right: 20px;
+    text-align: right;
+}
+
+.mat-list-single-item{
+    padding: 0px;
+    background-color: lightgray;
+    border: 1px solid;
+    border-radius: 3px;
+}
+
+.messageShowBox{
+    float: left;
+    margin-left: 1vw;
+    width: 55vw;
+    min-height: 80vh;
+    border-radius: 3px;
+    background-color: lightgray;
+}
+
+.messageBoxContent{
+    padding: 30px;
+}
+
+.dateTile{
+    width: 100%;
+}
+
+.senderTile{
+    width: 100%;
+}
+
+.title{
+    width: 100%;
+}
+
+.content{
+    width: 100%;
+    white-space: pre-line;
+}
