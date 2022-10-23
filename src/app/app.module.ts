@@ -29,6 +29,9 @@ import { SpinnerInterceptor } from './spinner/shared/spinner-interceptor';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatListModule } from '@angular/material/list';
 import {MatGridListModule} from '@angular/material/grid-list';
+import {MatTabsModule} from '@angular/material/tabs';
+import { DialogComponent } from './dialog/dialog.component';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 export function tokenGetter() {
@@ -46,7 +49,8 @@ export function tokenGetter() {
     LoginComponent,
     UserInformationComponent,
     HomeComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    DialogComponent
   ],
   imports: [
     BrowserModule,
@@ -65,6 +69,8 @@ export function tokenGetter() {
     MatListModule,
     MatPaginatorModule,
     MatGridListModule,
+    MatTabsModule,
+    MatDialogModule,
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,

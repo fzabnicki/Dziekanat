@@ -1,0 +1,19 @@
+.container {
+    width: calc(100vw - 120px);
+}
+
+.generatedTable {
+    background-color: gray;
+}
+
+table {
+    width: 100%;
+}
+
+.teacher{
+    :hover{
+        text-decoration: underline;
+        color: darkgray;
+        cursor: pointer;
+    }
+}
