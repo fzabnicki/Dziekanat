@@ -48,10 +48,6 @@ export class MessagesComponent implements OnInit {
       });
   }
 
-  Show(data: any) {
-    console.log(data);
-  }
-
   readMessage(value: number){
     console.log(value);
     this.dataSource.find((item) => item.id === value)!.isMessageNew = false;

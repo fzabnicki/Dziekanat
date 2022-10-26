@@ -7,11 +7,16 @@ import { JwtHelperService } from '@auth0/angular-jwt';
   templateUrl: './navigation-side-menu.component.html',
   styleUrls: ['./navigation-side-menu.component.scss']
 })
-export class NavigationSideMenuComponent {
+export class NavigationSideMenuComponent implements OnInit {
 
+  messageCount: number = 0;
   private jwtHelper: JwtHelperService = new JwtHelperService();
   constructor(private router: Router) {
-   }
+  }
+
+  ngOnInit(): void {
+    this.messageCount = 0;
+  }
 
   isUserAuthenticated() {
     const token = localStorage.getItem("acces_token");

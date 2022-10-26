@@ -15,7 +15,7 @@
             </div>
         </div>
         <div class="tile">
-            <div class="text">
+            <div class="text" [matBadge]='messageCount' matBadgeOverlap="false" matBadgeColor="warn" [matBadgeHidden]="messageCount === 0">
                 <a routerLink="/messages" routerLinkActive="active" ariaCurrentWhenActive="page">
                     <span>Wiadomości</span>
                 </a>

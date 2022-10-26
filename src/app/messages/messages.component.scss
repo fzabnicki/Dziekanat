@@ -27,9 +27,7 @@ mat-selection-list{
 
 .mat-list-single-item{
     padding: 0px;
-    background-color: lightgray;
-    border: 1px solid;
-    border-radius: 3px;
+    border: 1px solid rgb(221, 221, 221);
 }
 
 .messageShowBox{
@@ -38,7 +36,8 @@ mat-selection-list{
     width: 55vw;
     min-height: 80vh;
     border-radius: 3px;
-    background-color: lightgray;
+    border: 1px solid rgb(221, 221, 221);
+
 }
 
 .messageBoxContent{
