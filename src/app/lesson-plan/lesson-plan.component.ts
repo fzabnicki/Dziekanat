@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Lesson } from '../shared/lesson';
+import { LessonDays } from '../shared/lessondays';
 import { Teacher } from '../shared/teacher';
 import { Title } from '../shared/title';
 
@@ -10,6 +11,9 @@ import { Title } from '../shared/title';
   styleUrls: ['./lesson-plan.component.scss']
 })
 export class LessonPlanComponent implements OnInit {
+
+  @Input() smallFormat: boolean = false;
+  @Input() day: Lesson[] = [];
 
   teachers: Teacher[] = [
     { id: 1, title: Title.DOKTORHABILITOWANY, name: "Jan", surname: "Kowalski", email: "jan.kowalski@edu.pl", phoneNumber: "+48 553-771-264" },
@@ -23,6 +27,7 @@ export class LessonPlanComponent implements OnInit {
   });
 
   displayedColumns: string[] = ['date', 'time', 'name'];
+  displayedSmall: string[] = ['time', 'name'];
 
   days: Lesson[] = [
     { startDate: new Date(2022, 11, 3, 9), endDate: new Date(2022, 11, 3, 10, 30), name: "Zarządzanie", place: "Sala nr.35", teacher: this.teachers[1] },

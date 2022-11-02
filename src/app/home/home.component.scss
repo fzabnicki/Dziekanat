@@ -1,0 +1,63 @@
+.container {
+    width: 85vw;
+    height: 85vh;
+    padding: 20px;
+}
+
+.latest-informations {
+    height: 100%;
+    width: 100%;
+    padding: 20px;
+    padding-top: 40px;
+    background-color: yellow;
+}
+
+h3{
+    padding-left: 5px;
+    margin: 0px;
+}
+
+.new-messages {
+    height: 100%;
+    width: 100%;
+    padding: 20px;
+    padding-top: 40px;
+    background-color: green;
+}
+
+.tooday-lessons {
+    height: 100%;
+    width: 100%;
+    padding: 20px;
+    padding-top: 40px;
+}
+
+.informations-container{
+    width: 250px;
+    height: 250px;
+}
+
+.lessons-container{
+    background-color: lightgray;
+    border-radius: 5px;
+    border: 1px solid gray;
+    padding: 5px;
+}
+
+.empty-lessons-container{
+    background-color: lightgray;
+    color: darkgray;
+    width: 100%;
+    height: 95%;
+    line-height: 370px;
+    font-size: 32px;
+    border-radius: 5px;
+    text-align: center;
+    vertical-align: middle;
+    border: 1px solid gray;
+}
+
+.empty-lessons-text{
+    overflow-wrap: break-word;
+    inline-size: 100%;
+}

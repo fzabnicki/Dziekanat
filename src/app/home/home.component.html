@@ -1,1 +1,31 @@
-<p>home works!</p>
+<div class="container">
+    <mat-grid-list cols="2" rowHeight="2:1">
+        <mat-grid-tile>
+            <div class="new-messages">
+                <div class="messages-container">
+                    messages
+                </div>
+            </div>
+        </mat-grid-tile>
+        <mat-grid-tile rowspan="2">
+            <div class="latest-informations">
+                <div class="informations-container">
+                    informations
+                </div>
+            </div>
+        </mat-grid-tile>
+        <mat-grid-tile colspan="1">
+            <div class="tooday-lessons">
+                <div class="lessons-container" *ngIf="lessonsData != null">
+                    <h3>Zajęcia w dniu dzisiejszym</h3>
+                    <app-lesson-plan [smallFormat]="true" [day]="lessonsData"></app-lesson-plan>
+                </div>
+                <div class="empty-lessons-container" *ngIf="lessonsData == null">
+                    <div class="empty-lessons-text">
+                        Brak zajęć w dniu dzisiejszym
+                    </div>
+                </div>
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+</div>
