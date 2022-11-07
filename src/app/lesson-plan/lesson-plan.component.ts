@@ -77,10 +77,10 @@ const TEACHERS: Teacher[] = [
 
 const DAYS: LessonDays[] = [{
   date: new Date(2022, 11, 3), lessons: [
-    { startDate: new Date(2022, 11, 3, 9), endDate: new Date(2022, 11, 3, 10, 30), name: "Zarządzanie", place: "Sala nr.35", teacher: TEACHERS[1] },
+    { startDate: new Date(2022, 11, 3, 9), endDate: new Date(2022, 11, 3, 10, 30), name: "Zarządzanie", place: "Sala nr.35", teacher: TEACHERS[2] },
     { startDate: new Date(2022, 11, 3, 10, 45), endDate: new Date(2022, 11, 3, 12, 15), name: "Język angielski", place: "Sala nr.12", teacher: TEACHERS[1] },
-    { startDate: new Date(2022, 11, 3, 12, 30), endDate: new Date(2022, 11, 3, 14), name: "Programowanie w środowisku ASP.NET", place: "Sala nr.65", teacher: TEACHERS[1] },
-    { startDate: new Date(2022, 11, 3, 14, 15), endDate: new Date(2022, 11, 3, 15, 45), name: "Matematyka dyskretna", place: "Sala nr.65", teacher: TEACHERS[1] },
+    { startDate: new Date(2022, 11, 3, 12, 30), endDate: new Date(2022, 11, 3, 14), name: "Programowanie w środowisku ASP.NET", place: "Sala nr.65", teacher: TEACHERS[0] },
+    { startDate: new Date(2022, 11, 3, 14, 15), endDate: new Date(2022, 11, 3, 15, 45), name: "Matematyka dyskretna", place: "Sala nr.65", teacher: TEACHERS[2] },
     { startDate: new Date(2022, 11, 3, 16), endDate: new Date(2022, 11, 3, 17, 30), name: "Ekonometria", place: "Sala nr.65", teacher: TEACHERS[1] },
   ]
 },

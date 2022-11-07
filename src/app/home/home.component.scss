@@ -22,7 +22,6 @@ h3{
     width: 100%;
     padding: 20px;
     padding-top: 40px;
-    background-color: green;
 }
 
 .tooday-lessons {
@@ -58,4 +57,28 @@ h3{
 
 .empty-lessons-text{
     font-size: 2vw;
+}
+
+.informations-bar-warning{
+    border-radius: 4px ;
+    border: 1px solid yellow ;
+    background-color: rgb(252, 252, 203);
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.informations-bar-alert{
+    border-radius: 4px ;
+    border: 1px solid red ;
+    background-color: rgb(255, 198, 198);
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.informations-bar-succes{
+    border-radius: 4px ;
+    border: 1px solid green ;
+    background-color: rgb(211, 255, 211);
+    padding: 5px;
+    margin-bottom: 10px;
 }

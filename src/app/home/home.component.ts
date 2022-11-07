@@ -25,7 +25,7 @@ export class HomeComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.lessonsData = undefined;
+    //this.lessonsData = undefined;
   }
 
 }
