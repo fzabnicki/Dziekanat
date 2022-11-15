@@ -35,6 +35,9 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { CarouselModule } from '@coreui/angular';
+import { IconModule, IconSetService } from '@coreui/icons-angular';
+import { CustomCarouselComponent } from './custom-carousel/custom-carousel.component';
 
 
 
@@ -54,12 +57,15 @@ export function tokenGetter() {
     UserInformationComponent,
     HomeComponent,
     SpinnerComponent,
-    DialogComponent
+    DialogComponent,
+    CustomCarouselComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    IconModule,
     BrowserAnimationsModule,
+    CarouselModule,
     MatIconModule,
     MatTableModule,
     MatCardModule,
@@ -89,6 +95,7 @@ export function tokenGetter() {
   providers: [
     MatSnackBar,
     Overlay,
+    IconSetService,
     AuthGuard,
     {
       provide: JwtHelperService,
