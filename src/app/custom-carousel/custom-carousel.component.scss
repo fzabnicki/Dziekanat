@@ -1,1 +1,10 @@
 @import "../../../node_modules/@coreui/coreui/scss/coreui";
+
+c-carousel-caption {
+    background-color: rgba(0, 0, 0, 0.438);
+    border-radius: 4px;
+}
+
+c-carousel-control:hover {
+    font-size: 64px;
+}
