@@ -46,12 +46,26 @@ export class LessonPlanComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    DAYS.forEach(day => {
-      if (day.lessons && Array.isArray(day.lessons) && day.lessons.length)
-        this.lessonsData = [...this.lessonsData, { ...day, lessons: new MatTableDataSource(day.lessons) }];
-    })
-    this.dataSource = new MatTableDataSource<LessonDays>(this.lessonsData);
-    this.dataSource.sort = this.sort;
+    this.processData();
+  }
+
+  processData(filteredData?: LessonDays[]) {
+    this.lessonsData = []
+    if (filteredData) {
+      filteredData.forEach(day => {
+        if (day.lessons && Array.isArray(day.lessons) && day.lessons.length)
+          this.lessonsData = [...this.lessonsData, { ...day, lessons: new MatTableDataSource(day.lessons) }];
+      })
+      this.dataSource = new MatTableDataSource<LessonDays>(this.lessonsData);
+      this.dataSource.sort = this.sort;
+    } else {
+      DAYS.forEach(day => {
+        if (day.lessons && Array.isArray(day.lessons) && day.lessons.length)
+          this.lessonsData = [...this.lessonsData, { ...day, lessons: new MatTableDataSource(day.lessons) }];
+      })
+      this.dataSource = new MatTableDataSource<LessonDays>(this.lessonsData);
+      this.dataSource.sort = this.sort;
+    }
   }
 
   toggleRow(element: LessonDays) {
@@ -64,6 +78,21 @@ export class LessonPlanComponent implements OnInit {
 
   applyFilter(filterValue: string) {
     this.innerTables!.forEach((table, index) => (table.dataSource as MatTableDataSource<Lesson>).filter = filterValue.trim().toLowerCase());
+  }
+
+  sortByDate(range: FormGroup) {
+    if (range.value.start != null && range.value.end != null) {
+      let temp: LessonDays[] = []
+      temp = DAYS.filter((item: any) => {
+        return item.date.getTime() >= range.value.start.getTime() &&
+          item.date.getTime() <= range.value.end.getTime();
+      });
+      this.processData(temp);
+    }
+  }
+
+  resetSort() {
+    this.processData();
   }
 
 }
