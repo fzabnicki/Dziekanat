@@ -13,7 +13,7 @@ export class UserInformationService {
   
   constructor(private http: HttpClient) { }
   
-  getUserDetailsById(id: string): Observable<User> {
-    return this.http.get<User>(this.url + 'Student?Id=' + id, this.httpHeaders);
+  getUserDetailsById(): Observable<User> {
+    return this.http.get<User>(this.url + 'Student', this.httpHeaders);
   }
 }

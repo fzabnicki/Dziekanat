@@ -14,7 +14,6 @@ export class HomeComponent implements OnInit {
     { id: 1, title: Title.DOKTORHABILITOWANY, name: "Jan", surname: "Kowalski", email: "jan.kowalski@edu.pl", phoneNumber: "+48 553-771-264" },
   ];
 
-
   lessonsData?: Lesson[] = [
     { startDate: new Date(2022, 11, 3, 9), endDate: new Date(2022, 11, 3, 10, 30), name: "Zarządzanie", place: "Sala nr.35", teacher: this.teachers[1] },
     { startDate: new Date(2022, 11, 3, 10, 45), endDate: new Date(2022, 11, 3, 12, 15), name: "Język angielski", place: "Sala nr.12", teacher: this.teachers[1] },
@@ -25,7 +24,7 @@ export class HomeComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    //this.lessonsData = undefined;
+    this.lessonsData = undefined;
   }
 
 }

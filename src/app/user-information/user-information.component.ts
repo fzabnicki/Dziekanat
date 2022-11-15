@@ -16,7 +16,7 @@ export class UserInformationComponent implements OnInit {
   constructor(private userInformationService: UserInformationService) { }
 
   ngOnInit(): void {
-    this.userInformationService.getUserDetailsById(localStorage.getItem('userId')!).subscribe((response) => {
+    this.userInformationService.getUserDetailsById().subscribe((response) => {
       this.processGrid(response);
     })
   }

@@ -35,9 +35,7 @@ export class LoginComponent {
         next: (response) => {
           console.log(response);
           const token = (<any>response).token;
-          const userId = (<any>response).userId;
           localStorage.setItem("acces_token", token);
-          localStorage.setItem("userId", userId);
           this.invalidLogin = false;
           this.router.navigate(["/home"]);
         }, error: (err) => {
