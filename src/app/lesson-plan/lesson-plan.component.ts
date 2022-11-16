@@ -30,7 +30,7 @@ export class LessonPlanComponent implements OnInit {
 
   dataSource: MatTableDataSource<LessonDays> | undefined;
   lessonsData: LessonDays[] = [];
-  displayedColumns: string[] = ['date'];
+  displayedColumns: string[] = ['Data'];
   innerDisplayedColumns: string[] = ['time', 'name', 'teacher', 'place'];
   expandedElement: LessonDays | null = null;
 
@@ -76,10 +76,6 @@ export class LessonPlanComponent implements OnInit {
     console.log(this.expandedElement);
   }
 
-  applyFilter(filterValue: string) {
-    this.innerTables!.forEach((table, index) => (table.dataSource as MatTableDataSource<Lesson>).filter = filterValue.trim().toLowerCase());
-  }
-
   sortByDate(range: FormGroup) {
     if (range.value.start != null && range.value.end != null) {
       let temp: LessonDays[] = []
@@ -95,6 +91,16 @@ export class LessonPlanComponent implements OnInit {
     this.processData();
   }
 
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    if (this.dataSource != undefined) {
+      this.dataSource.data.forEach(value => {
+        if (value.lessons != undefined)
+          value.lessons.filter = filterValue.trim().toLowerCase();
+      })
+    }
+
+  }
 }
 
 const TEACHERS: Teacher[] = [
